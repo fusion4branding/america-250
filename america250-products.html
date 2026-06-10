@@ -1,0 +1,375 @@
+<section class="a250-catalog-page">
+
+  <div class="a250-catalog-hero">
+    <canvas id="a250CatalogFireworks"></canvas>
+
+    <div class="a250-container a250-catalog-hero-content">
+      <p class="a250-kicker">America 250 Product Catalog</p>
+      <h1>All Swagtastic Ideas</h1>
+      <p>
+        Browse patriotic giveaways, event essentials, summer swag, apparel, drinkware, bags, and more.
+      </p>
+    </div>
+  </div>
+
+  <div class="a250-container">
+    <div class="a250-catalog-grid" id="a250CatalogGrid"></div>
+  </div>
+
+  <section class="a250-catalog-contact" id="contact">
+    <div class="a250-container">
+      <h2>Need help choosing the right items?</h2>
+      <p>Reach out to your dedicated Fusion 4 specialist today.</p>
+      <a href="mailto:kevin@fusion4branding.com">Request More Ideas</a>
+    </div>
+  </section>
+
+</section>
+
+<style>
+  .a250-catalog-page {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #20285f;
+    background: #ffffff;
+  }
+
+  .a250-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .a250-catalog-hero {
+    position: relative;
+    background: #20285f;
+    color: #ffffff;
+    text-align: center;
+    padding: 90px 20px;
+    overflow: hidden;
+  }
+
+  #a250CatalogFireworks {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .a250-catalog-hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .a250-kicker {
+    color: #ed1c24;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+
+  .a250-catalog-hero h1 {
+    font-size: clamp(42px, 7vw, 82px);
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+    font-weight: 900;
+  }
+
+  .a250-catalog-hero p {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 21px;
+    line-height: 1.6;
+  }
+
+  .a250-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 70px 0;
+  }
+
+  .a250-catalog-card {
+    background: #ffffff;
+    border: 2px solid #eeeeee;
+    border-radius: 20px;
+    padding: 22px 18px 26px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .a250-catalog-card:hover {
+    transform: translateY(-8px);
+    border-color: #ed1c24;
+    box-shadow: 0 22px 48px rgba(0,0,0,0.16);
+  }
+
+  .a250-catalog-card img {
+    width: 100%;
+    height: 175px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    transition: transform 0.25s ease;
+  }
+
+  .a250-catalog-card:hover img {
+    transform: scale(1.06);
+  }
+
+  .a250-catalog-card h3 {
+    font-size: 19px;
+    font-weight: 900;
+    color: #20285f;
+    margin: 0 0 10px;
+    min-height: 48px;
+  }
+
+  .a250-item-number {
+    font-size: 14px;
+    color: #666666;
+    font-weight: 800;
+    margin: 0 0 8px;
+  }
+
+  .a250-price {
+    color: #ed1c24 !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    margin: 8px 0 6px !important;
+  }
+
+  .a250-disclaimer {
+    color: #666666 !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    margin: 0 0 16px !important;
+  }
+
+  .a250-catalog-card a,
+  .a250-catalog-contact a {
+    display: inline-block;
+    background: #ed1c24;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .a250-catalog-card a:hover,
+  .a250-catalog-contact a:hover {
+    background: #20285f;
+    color: #ffffff;
+  }
+
+  .a250-catalog-contact {
+    background: #ed1c24;
+    color: #ffffff;
+    text-align: center;
+    padding: 70px 20px;
+  }
+
+  .a250-catalog-contact h2 {
+    font-size: 40px;
+    font-weight: 900;
+    margin: 0 0 15px;
+  }
+
+  .a250-catalog-contact p {
+    font-size: 21px;
+    margin: 0 0 24px;
+  }
+
+  .a250-catalog-contact a {
+    background: #ffffff;
+    color: #20285f;
+  }
+
+  .a250-catalog-contact a:hover {
+    background: #20285f;
+    color: #ffffff;
+  }
+
+  @media (max-width: 1024px) {
+    .a250-catalog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .a250-catalog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .a250-catalog-card img {
+      height: 165px;
+    }
+  }
+</style>
+
+<script>
+  const a250Products = [
+    { name: "US Flag Flexible Key Tag", item: "JPFCI-CZKYV", price: "0.83", img: "https://i.imgur.com/h0UBFQI.jpeg" },
+    { name: "Patriotic Sunglasses", item: "EKYEH-PZQGY", price: "1.89", img: "https://i.imgur.com/Haxy9rK.jpeg" },
+    { name: "Stars & Stripes Tote Bag", item: "QMCZF-FNOZC", price: "6.24", img: "https://i.imgur.com/8x7YTBy.jpeg" },
+    { name: "OTTO American Flag Visor Cap", item: "LOYYF-MYXAK", price: "14.10", img: "https://i.imgur.com/aEMAggD.jpeg" },
+    { name: "Patriotic Sling Backpack", item: "QHHGF-JYVEG", price: "5.42", img: "https://i.imgur.com/y4MRxVt.jpeg" },
+    { name: "Patriot Folding Umbrella", item: "IIAYE-GIHDT", price: "10.83", img: "https://i.imgur.com/jyqsfh6.jpeg" },
+    { name: "Patriotic American Flag Pen", item: "THHAC-GEKBZ", price: "0.80", img: "https://i.imgur.com/Ua8j3eL.jpeg" },
+    { name: "Patriotic Stress Ball", item: "ENBCE-DNEIZ", price: "2.00", img: "https://i.imgur.com/kDJXZKq.jpeg" },
+    { name: "Patriotic Collapsible Fan", item: "NKGYK-SHZPJ", price: "1.05", img: "https://i.imgur.com/OulMmXM.jpeg" },
+    { name: "American Flag Belt Bag", item: "FPGHB-QYKXC", price: "8.18", img: "https://i.imgur.com/PjfqDDj.jpeg" },
+    { name: "Patriotic Kickbag Ball", item: "WHHDC-TIIOR", price: "1.18", img: "https://i.imgur.com/8McMh6z.jpeg" },
+    { name: "Patriotic Rubber Grip Pen", item: "SIYYI-MDAZH", price: "0.99", img: "https://i.imgur.com/vpuEEj0.jpeg" },
+    { name: "Patriotic Drawstring Backpack", item: "JKHEG-KLEFF", price: "4.49", img: "https://i.imgur.com/FQmVZtV.jpeg" },
+    { name: "USA Made Patriotic Twist Pen", item: "JGYAF-EPLDQ", price: "1.36", img: "https://i.imgur.com/wKBggPs.jpeg" },
+    { name: "Patriotic Screen Cleaner Stylus Pen", item: "WHDYE-QLFKB", price: "2.14", img: "https://i.imgur.com/CmOPoQc.jpeg" },
+    { name: "Patriotic Can Cooler", item: "YJGHC-TEFWB", price: "1.41", img: "https://i.imgur.com/yfuupsK.jpeg" },
+    { name: "Patriotic Hand Clapper", item: "ZNEGI-TQNCR", price: "1.43", img: "https://i.imgur.com/CNDCJWF.jpeg" },
+    { name: "6&quot; Patriotic Bear", item: "NNEFK-NIBZH", price: "7.49", img: "https://i.imgur.com/7lv5pzJ.jpeg" },
+    { name: "America 250 Americana Water Bottle", item: "JMYYH-TOGQQ", price: "19.99", img: "https://i.imgur.com/lTP3EPI.jpeg" },
+    { name: "Patriotic Mad Cap Stress Reliever", item: "IJCDK-IBTIN", price: "3.05", img: "https://i.imgur.com/icaCLUe.jpeg" },
+    { name: "USA Cotton Twill Trucker Cap", item: "FJBCC-TJXCX", price: "22.02", img: "https://i.imgur.com/EF9LSdo.jpeg" },
+    { name: "USA Patriotic Picnic Mat", item: "BHHYC-SMDSP", price: "8.49", img: "https://i.imgur.com/msQJOCU.jpeg" },
+    { name: "US Flag Beach Towel", item: "VPGZI-GVOSD", price: "18.72", img: "https://i.imgur.com/AXnfo6H.jpeg" },
+    { name: "OTTO American Flag Mesh Back Cap", item: "HOYAG-MYWZR", price: "11.30", img: "https://i.imgur.com/3nNRRJC.jpeg" },
+    { name: "American Flag Non-Woven Tote Bag", item: "RLFEJ-PJCVQ", price: "3.40", img: "https://i.imgur.com/OMUKeGj.jpeg" },
+    { name: "USA Flag Silicone Wristband", item: "GKYYI-NFJRD", price: "0.50", img: "https://i.imgur.com/toe9M67.jpeg" },
+    { name: "American Flag Ribbon Lapel Pin", item: "NKYEB-MGIRM", price: "1.10", img: "https://i.imgur.com/vi2yHtc.jpeg" },
+    { name: "4&quot; x 6&quot; America 250th Stick Flag", item: "SNBEI-TQMRX", price: "2.40", img: "https://i.imgur.com/pXTUfu3.jpeg" },
+    { name: "I Love America Calendar", item: "TPFZH-LZGWW", price: "3.72", img: "https://i.imgur.com/HPqcZuP.jpeg" },
+    { name: "Weathered American Flag Headscarf", item: "GGGDF-NTHSM", price: "0.50", img: "https://i.imgur.com/GBMIr66.jpeg" },
+    { name: "Patriotic Flag Lanyard", item: "TKDYD-PUNYU", price: "1.53", img: "https://i.imgur.com/q3MxdKg.jpeg" },
+    { name: "16&quot; USA Beach Ball", item: "YGYCK-UENRF", price: "2.03", img: "https://i.imgur.com/FfcgRJr.jpeg" },
+    { name: "Stars & Stripes 6 Can Cooler Bag", item: "NLDEK-FWEKX", price: "6.15", img: "https://i.imgur.com/3aQ6sRK.jpeg" },
+    { name: "Kershaw Leek USA Flag", item: "BHHDE-RVQQX", price: "125.00", img: "https://i.imgur.com/LT2f8oI.jpeg" },
+    { name: "Redwear Brandon Patriotic Polo", item: "DJBAI-ISGFP", price: "51.64", img: "https://i.imgur.com/tMNzJp3.jpeg" },
+    { name: "Patriotic Outdoor Folding Chair", item: "VMDHH-NUQSO", price: "29.95", img: "https://i.imgur.com/FXSVwLS.jpeg" },
+    { name: "Silver Tombstone Key Tag", item: "JLADK-LQYCV", price: "5.60", img: "https://i.imgur.com/RnvGFJi.jpeg" }
+  ];
+
+  const catalogGrid = document.getElementById("a250CatalogGrid");
+
+  a250Products.forEach(product => {
+    const card = document.createElement("div");
+    card.className = "a250-catalog-card";
+    card.innerHTML = `
+      <img src="${product.img}" alt="${product.name.replace(/&quot;/g, '"')}">
+      <h3>${product.name}</h3>
+      <p class="a250-item-number">Item # ${product.item}</p>
+      <p class="a250-price">As low as $${product.price}</p>
+      <p class="a250-disclaimer">
+        Price excludes set up and shipping<br>
+        Products offered while supplies last
+      </p>
+      <a href="#contact">Request Quote</a>
+    `;
+    catalogGrid.appendChild(card);
+  });
+
+  (function () {
+    var canvas = document.getElementById("a250CatalogFireworks");
+    if (!canvas) return;
+
+    var ctx = canvas.getContext("2d");
+    var fireworks = [];
+    var particles = [];
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function Firework() {
+      this.x = random(80, canvas.width - 80);
+      this.y = canvas.height;
+      this.targetY = random(60, canvas.height / 2);
+      this.speed = random(4, 7);
+      this.color = ["#ed1c24", "#ffffff", "#3b82f6"][Math.floor(Math.random() * 3)];
+    }
+
+    Firework.prototype.update = function () {
+      this.y -= this.speed;
+      if (this.y <= this.targetY) {
+        this.explode();
+        return true;
+      }
+      return false;
+    };
+
+    Firework.prototype.draw = function () {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    };
+
+    Firework.prototype.explode = function () {
+      for (var i = 0; i < 45; i++) {
+        particles.push(new Particle(this.x, this.y, this.color));
+      }
+    };
+
+    function Particle(x, y, color) {
+      this.x = x;
+      this.y = y;
+      this.color = color;
+      this.angle = random(0, Math.PI * 2);
+      this.speed = random(1, 5);
+      this.alpha = 1;
+      this.decay = random(0.01, 0.025);
+    }
+
+    Particle.prototype.update = function () {
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+      this.alpha -= this.decay;
+    };
+
+    Particle.prototype.draw = function () {
+      ctx.save();
+      ctx.globalAlpha = this.alpha;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+      ctx.restore();
+    };
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (Math.random() < 0.035) {
+        fireworks.push(new Firework());
+      }
+
+      fireworks = fireworks.filter(function (firework) {
+        firework.draw();
+        return !firework.update();
+      });
+
+      particles = particles.filter(function (particle) {
+        particle.update();
+        particle.draw();
+        return particle.alpha > 0;
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  })();
+</script>
